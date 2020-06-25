@@ -26,7 +26,6 @@ with io.open('vocab3000_3_better.txt','w', encoding='utf-8') as f:
     for line in lines:
         f.write(line+'\n')
 
-
 for i in range(len(lines)):
     if lines[i].startswith('('):
         lines[i-1]+=lines[i]
@@ -48,6 +47,7 @@ for line in lines:
     
     if len(tmp)==3:
         #if regex.match('\p{IsCyrillic}',tmp[0]):# and regex.match(r"^[\u0600-\u06FF\s]*",tmp[2][:-1]) :
+        tmp[2]=tmp[2][::-1]
         f.write('\t'.join(tmp)+'\n')
         #else:
         #    print(f'\t\t\t {tmp}')
